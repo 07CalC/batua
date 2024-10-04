@@ -4,6 +4,7 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import authRoutes from "./routes/authRoutes.js"
 import dbConnect from "../utils/dbConnect.js";
+import transactionRoutes from "./routes/transactionRoutes.js"
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -22,6 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use("/api/auth", authRoutes)
+app.use("/api/transaction", transactionRoutes)
 
 
 app.listen(PORT, async ()=>{

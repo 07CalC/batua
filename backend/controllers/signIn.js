@@ -1,17 +1,23 @@
 import { setCookie } from "../../utils/cookieSetter.js"
 import User from "../models/user.js"
+import bcrypt from "bcrypt"
 
 
 export const signIn = async (req, res) => {
 
     try{
-        const {email, password} = req.body
-        if(!email || !password){
+        const {emailOrNumber, password} = req.body
+        if(!emailOrNumber || !password){
             return res.status(400).json({message: "insufficient data"})
         }
-        const user = await User.findOne({email: email})
+        const user = await User.findOne({email: emailOrNumber}) 
         if(!user){
             return res.status(400).json({message: "user not found"})
+        }
+
+        const isMatch = await bcrypt.compare(password, user.password)
+        if(!isMatch){
+            return res.status(400).json({message: "incorrect password"})
         }
         setCookie(user._id, res)
         return res.status(200).json({message: "successfully Logged in", user: user})    
