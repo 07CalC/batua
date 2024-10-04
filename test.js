@@ -1,2 +1,3 @@
-console.log("2024-10-04".split("-")[0])
-// console.log(new Date().getFullYear())
+primary = #b7bab4
+secondary = #e2dfd4
+textcol = #0b1214
