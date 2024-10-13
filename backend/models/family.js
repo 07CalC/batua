@@ -26,44 +26,10 @@ const familySchema = new mongoose.Schema(
     },
     transactions: [
       {
-        description: {
-          type: String,
-          required: true,
-        },
-        type:{
-          type: String,
-          enum: ["food", "clothing", "travel", "entertainment", "other"],
-          required: true,
-          default: "other",
-        },
-        amount: {
-          type: Number,
-          required: true,
-        },
-        date: {
-          type: Number,
-          required: true,
-        },
-        month: {
-          type: Number,
-          required: true,
-        },
-        year: {
-          type: Number,
-          required: true,
-        },
-        user: {
-          userId: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "User",
-            required: true,
-          },
-          name: {
-            type: String,
-            required: true,
-          },
-        }
-      },
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Transaction",
+        default: []
+      }
     ],
   },
   { timestamps: true }

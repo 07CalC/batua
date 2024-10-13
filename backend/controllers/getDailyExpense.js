@@ -1,25 +1,27 @@
-import User from "../models/user.js"
-
+import Transaction from "../models/transaction.js";
+import User from "../models/user.js";
 
 export const getDailyExpense = async (req, res) => {
-    try {
-        const userId = req.userId
-        const { date } = req.body
-        if (!date) {
-            return res.status(400).json({ message: "invalid data" })
-        }
-    const user = await User.findOne({ _id: userId })
-    const dailyExpense = user.transactions.filter((item) => item.date === parseInt(date.split("-")[2]) && item.month === parseInt(date.split("-")[1]) && item.year === parseInt(date.split("-")[0]))
-    
-   
-        if (dailyExpense.length === 0) {
-            return res.status(400).json({ message: "Not Found" })
-        }
-        
-        res.status(200).json({ dailyExpense })
+  try {
+    const userId = req.userId;
+    const date = req.body.date;
+    if (!date) {
+      return res.status(400).json({ message: "invalid data" });
     }
-    catch (error) {
-        console.log("error in getDailyExpense ", error)
-        res.status(500).json({ message: "internal server error" })
-    }
-}
+    const transactions = await Transaction.find({
+      userId: userId,
+      date:
+        new Date(date).getDate() +
+        "-" +
+        (new Date(date).getMonth() + 1) +
+        "-" +
+        new Date(date).getFullYear(date),
+    });
+    if (transactions.length === 0)
+      return res.status(401).json({ message: "nothing found" });
+    return res.status(200).json( transactions );
+  } catch (error) {
+    console.log("error in getDailyExpense ", error);
+    res.status(500).json({ message: "internal server error" });
+  }
+};

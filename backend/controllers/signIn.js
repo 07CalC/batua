@@ -20,7 +20,7 @@ export const signIn = async (req, res) => {
             return res.status(400).json({message: "incorrect password"})
         }
         setCookie(user._id, res)
-        return res.status(200).json({message: "successfully Logged in", user: user})    
+        return res.status(200).json({message: "successfully Logged in"})    
     
 }
     catch(error){   

@@ -13,6 +13,7 @@ export const getUserId = async (req, res, next) => {
         return res.status(401).json({ message: "You need to login first" });
     }
     req.name = user.name;
+    req.familyId = user.family;
     req.userId = decodedToken.userId;
     next();
 

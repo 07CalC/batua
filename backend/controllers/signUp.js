@@ -6,8 +6,9 @@ export const singUp = async (req, res) => {
   try {
     const { name, email, number, password } = req.body;
 
+    console.log(name, email, number, password)
     if(!name || !email || !number || !password){
-      res.status(201).json({message: "insufficient data"})
+      return res.status(201).json({message: "insufficient data"})
     }
     const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
       if (!emailRegex.test(email)) {
@@ -35,7 +36,7 @@ export const singUp = async (req, res) => {
 
     await newUser.save()
     setCookie(newUser._id, res)
-    res.status(200).json({ newUser });
+    return res.status(200).json({ newUser });
   
   } catch (error) {
     console.log("error in signup controller", error);

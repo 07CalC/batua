@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+
+
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
@@ -9,11 +11,16 @@ module.exports = {
     fontFamily: {
       'roboto': ['Roboto', 'sans-serif'],
       'algerian': ['Algerian', 'cursive'],
+      'alata': ['Alata', 'sans-serif'],
     },
     colors: {
-      'primary': '#b7bab4',
-      'secondary': '#e2dfd4',
+      'primary': '#f3f4f6',
+      'secondary': '#ffffff',
       'textcol': '#0b1214',
+      'accent': '#707070',
+      'border': '#e5e5e8',
+      'red': '#ff0808',
+      'blue': '#1838f0'
     }
   },
   plugins: [],
