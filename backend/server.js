@@ -3,7 +3,7 @@ import cors from "cors";
 import express from "express";
 import cookieParser from "cookie-parser";
 import authRoutes from "./routes/authRoutes.js"
-import dbConnect from "../utils/dbConnect.js";
+import dbConnect from "./utils/dbConnect.js";
 import transactionRoutes from "./routes/transactionRoutes.js"
 
 const app = express();
