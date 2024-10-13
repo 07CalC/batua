@@ -21,8 +21,7 @@ export const userSchema = new mongoose.Schema(
       required: true,
     },
     family: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Family",
+      type: Number,
       default: null,
     },
 

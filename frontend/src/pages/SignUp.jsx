@@ -1,11 +1,15 @@
-
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaEyeSlash } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { AllContext } from "../context/context";
 
 export const SignUp = () => {
+  const context = useContext(AllContext);
+  const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [serverResponse, setServerResponse] = useState("");
+  const navigate = useNavigate();
   const [userData, setUserData] = useState({
     name: "",
     number: "",
@@ -16,22 +20,37 @@ export const SignUp = () => {
     setUserData({ ...userData, [event.target.name]: event.target.value });
   };
   const handleSignUp = async () => {
+    setIsLoading(true);
     const res = await fetch(`http://localhost:8000/api/auth/signup`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        credentials: "include",
-        body: JSON.stringify({
-            name: userData.name,
-            email: userData.email,
-            number: userData.number,
-            password: userData.password
-        })
-    })
-  
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify({
+        name: userData.name,
+        email: userData.email,
+        number: userData.number,
+        password: userData.password,
+      }),
+    });
+    const data = await res.json();
+    setServerResponse(data.message);
+
+    if (res.ok) {
+      setUserData({
+        name: "",
+        number: "",
+        email: "",
+        password: "",
+      });
+      context.setIsLoggedIn(true);
+      setIsLoading(false);
+      navigate("/");
+    }
+    setIsLoading(false);
   };
-  
+
   return (
     <>
       <div className="mx-auto flex min-h-full flex-1 flex-col justify-center items-center bg-secondary p-6 mt-8 rounded-xl lg:px-8 w-5/6">
@@ -42,7 +61,7 @@ export const SignUp = () => {
         </div>
 
         <div className="mt-6 justify-center flex flex-col  sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6 justify-center flex flex-col ">
+          <div className="space-y-6 justify-center flex flex-col ">
             <div>
               <label
                 htmlFor="Name"
@@ -66,7 +85,6 @@ export const SignUp = () => {
                 <p className="text-red text-sm"> Name is required</p>
               )}
             </div>
-
 
             <div>
               <label
@@ -160,12 +178,14 @@ export const SignUp = () => {
                 onClick={handleSignUp}
                 className="flex w-full justify-center rounded-md bg-textcol text-[#ffffff] hover:bg-accent px-3 py-1.5 text-sm font-semibold leading-6 text-black shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Sign Up
-                {/* {isLoading ? "Loading..." : "Sign up"} */}
+              
+                {isLoading ? "Loading..." : "Sign up"}
               </button>
             </div>
-          </form>
-
+          </div>
+          <p className="mt-4 text-md text-red">
+            {serverResponse && serverResponse}
+          </p>
           <p className="mt-4 text-center text-sm text-white">
             Already have an account?{" "}
             <NavLink

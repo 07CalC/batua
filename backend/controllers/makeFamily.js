@@ -19,8 +19,8 @@ export const makeFamily = async (req, res) =>{
         familyId: Math.floor(100000 + Math.random() * 900000)
     })
     await newFamily.save()
-    await User.updateOne({ _id: userId}, {family: newFamily._id})
-    res.status(200).json({message: "family created", familyId: newFamily.familyId})
+    await User.updateOne({ _id: userId}, {family: newFamily.familyId})
+    res.status(200).json({message: "family created"})
    }
    catch(error){
     console.log("error in makeFamily ", error)

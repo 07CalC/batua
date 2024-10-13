@@ -36,7 +36,7 @@ export const RecentExpenses = (dailyExpense, showName) => {
         ))}
         
       </div>
-      {context.dailyExpense.message && 
+      {dailyExpense.dailyExpense.message && 
       <>
         <img src="https://res.cloudinary.com/dkhymc3li/image/upload/v1728726939/Screenshot_2024-10-12_152428-removebg-preview_i7en6v.png"  className="self-center h-1/4 w-1/4 content-center"/>
         <p className="text-2xl text-center font-algerian">Nothing Found</p>

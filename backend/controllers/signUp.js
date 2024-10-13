@@ -12,7 +12,7 @@ export const singUp = async (req, res) => {
     }
     const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
       if (!emailRegex.test(email)) {
-        return res.status(400).json({ error: "Invalid Email" });
+        return res.status(400).json({ message: "Invalid Email" });
       }
 
       const existingEmail = await User.findOne({ email });

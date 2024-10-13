@@ -16,6 +16,7 @@ export const AllContextProvider = ({ children }) => {
     const [lineGraphData, setLineGraphData] = useState([])
     const [familyLineGraphData, setFamilyLineGraphData] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    const [showMenu, setShowMenu] = useState(false);
     const getMe = async () => {
       const res = await fetch(`http://localhost:8000/api/auth/me`, {
         method: "GET",
@@ -26,8 +27,10 @@ export const AllContextProvider = ({ children }) => {
       })
 
       const data = await res.json()
+      if(res.ok){
       setIsLoggedIn(true)
       setSignedUser(data)
+      }
     }
   
     const getDailyData = async () => {
@@ -158,6 +161,7 @@ export const AllContextProvider = ({ children }) => {
         isLoggedIn,
         setIsLoggedIn,
         signedUser,
+        setSignedUser,
         monthlyFamilyExpense,
         dailyFamilyExpense,
         isFamily,
@@ -166,7 +170,9 @@ export const AllContextProvider = ({ children }) => {
         setDarkMode,
         lineGraphData,
         familyLineGraphData,
-        isLoading
+        isLoading,
+        showMenu,
+        setShowMenu
       }}
     >
       {children}

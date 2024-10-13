@@ -11,8 +11,12 @@ import { HiChartPie } from "react-icons/hi2";
 import { FaCoins } from "react-icons/fa";
 import { Analytics } from "./Analytics";
 
+
 export const Family = () => {
   const context = useContext(AllContext);
+  const [familyId, setFamilyId] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [svResponse, setSvResponse] = useState({});
   const dailyExpense = context.dailyFamilyExpense;
   const [isAnalytics, setIsAnalytics] = useState(false);
   const lineGraphData = context.familyLineGraphData.data;
@@ -38,24 +42,78 @@ export const Family = () => {
       value: context.monthlyFamilyExpense.other,
     },
   ];
+
+  const handleMakeFamily = async () => {
+    setIsLoading(true);
+    const res = await fetch(`http://localhost:8000/api/auth/makeFamily`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      
+    })
+    const data = await res.json();
+    setSvResponse(data);
+    if(res.ok){
+      setIsLoading(false);
+      window.location.reload()
+    }
+    setIsLoading(false);
+  }
+
+  const handleJoinFamily = async () => {
+    setIsLoading(true);
+    const res = await fetch(`http://localhost:8000/api/auth/joinfamily`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        familyId: familyId
+      }),
+      credentials: "include",
+      
+    })
+    const data = await res.json();
+    setSvResponse(data);
+    if(res.ok){
+      setIsLoading(false);
+      window.location.reload()
+    }
+    setIsLoading(false);
+  }
+
   return (
     <>
       {!context.signedUser.family && (
-        <div className="flex flex-col items-center justify-center w-full bg-secondary border-2 mt-8 border-border p-4 rounded-xl">
+        <div className="flex items-center justify-center w-full bg-secondary border-2 mt-8 border-border p-8 rounded-xl">
+          <div className="flex flex-col w-1/2 items-center self-center justify-center pr-24 border-r-4 border-border">
           <img
             src="https://media1.tenor.com/m/aSkdq3IU0g0AAAAC/laughing-cat.gif"
-            className="w-1/4 rounded-xl self-center"
+            className="w-5/6 rounded-xl self-center"
           />
           <strong className="text-3xl text-center font-algerian font-bold">
-            LMAO, orphan
+            LMAO, orphan, no family?
           </strong>
-          <div className="flex w-1/6 mt-7 justify-between">
-            <button className="flex items-center justify-center bg-secondary border-[3px] border-border hover:bg-accent hover:text-[#ffffff] hover:border-accent text-white rounded-xl p-2 font-bold">
-              Join Family
-            </button>
-            <button className="flex items-center justify-center bg-accent text-[#ffffff] hover:bg-secondary hover:border-[3px] hover:border-border hover:text-textcol rounded-xl p-2  font-bold">
-              Make Family
-            </button>
+          </div>
+          <div className="flex flex-col w-1/2 pl-16 mt-7 items-center self-center justify-center">
+            <div className="flex text-2xl font-bold font-algerian text-center flex-col border-b-2 border-border pb-8">
+                Enter the family code to join
+                <input type="number" value={familyId} onChange={(e) => setFamilyId(e.target.value)} className="rounded-xl p-2 border-2 border-border"/>
+                <button onClick={handleJoinFamily} className="bg-textcol text-secondary px-4 py-2   hover:scale-110 border-4 border-textcol  mt-4 rounded-md text-xl">
+                    {isLoading ? "Loading..." : "Join"}
+                </button>
+            </div>
+            <div className="mt-6 w-2/3 flex flex-col">
+                <strong className="text-2xl text-center font-algerian font-bold">or create one </strong>
+                <button onClick={handleMakeFamily} className="bg-textcol font-algerian text-secondary px-4 py-2 w-full  hover:scale-110 border-4 border-textcol rounded-md text-xl">
+                    {isLoading ? "Loading..." : "Create"}
+                </button>
+            </div>
+            <p className="text-lg text-red text-center mt-4">
+                {svResponse.message ? svResponse.message : ""}
+            </p>
           </div>
         </div>
       )}
@@ -73,7 +131,7 @@ export const Family = () => {
               </div>
               <div className="mt-8 items-center flex text-3xl font-bold">
                 <LiaRupeeSignSolid />
-                {context.monthlyFamilyExpense.monthlyExpense}
+                {context.monthlyFamilyExpense.monthlyExpense ? context.monthlyFamilyExpense.monthlyExpense : 0}
               </div>
               <div className="mt-1 items-center flex text-lg text-accent">
                 +2.5% from Last Month
@@ -92,7 +150,9 @@ export const Family = () => {
                 <LiaRupeeSignSolid />
                 {Math.round(
                   (context.monthlyFamilyExpense.monthlyExpense / 30) * 100
-                ) / 100}
+                ) / 100 ? Math.round(
+                  (context.monthlyFamilyExpense.monthlyExpense / 30) * 100
+                ) / 100 : 0}
               </div>
 
               <div className="mt-1 items-center flex text-lg text-accent">
@@ -109,29 +169,29 @@ export const Family = () => {
                 </div>
               </div>
               <div className="mt-8 items-center flex text-3xl font-bold">
-                {context.monthlyFamilyExpense.type}
+                {context.monthlyFamilyExpense.type ? context.monthlyFamilyExpense.type : "N/A"}
               </div>
               <div className="mt-1 items-center flex text-lg text-accent">
                 <LiaRupeeSignSolid />
-                {context.monthlyFamilyExpense.typeAmount} spent on{" "}
-                {context.monthlyFamilyExpense.type}
+                {context.monthlyFamilyExpense.typeAmount ? context.monthlyFamilyExpense.typeAmount : 0} spent on{" "}
+                {context.monthlyFamilyExpense.type ? context.monthlyFamilyExpense.type : "N/A"}
               </div>
             </div>
 
             <div className="w-1/3 border-2 border-border bg-secondary flex mx-2 flex-col p-4 py-8 rounded-xl">
               <div className="flex justify-between">
                 <div>
-                  <p className="text-lg font-semibold">Top Family Spender</p>
+                  <p className="text-lg font-semibold">Family Code</p>
                 </div>
                 <div className="flex items-center justify-center">
-                  <TbUser className="text-lg text-accent" />
+                  <TbUsers className="text-lg text-accent" />
                 </div>
               </div>
               <div className="mt-8 items-center flex text-3xl font-bold">
-                John
+                {context.signedUser.family}
               </div>
               <div className="mt-1 items-center flex text-lg text-accent">
-                Jane Last Month
+                Use this to join this family
               </div>
             </div>
           </div>

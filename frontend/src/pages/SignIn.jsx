@@ -19,7 +19,6 @@ export const SignIn = () => {
   };
   const handleSignIn = async () => {
     setLoading(true);
-    context.setIsLoggedIn(false)
     const res = await fetch(`http://localhost:8000/api/auth/signin`, {
       method: "POST",
       headers: {
@@ -47,7 +46,7 @@ export const SignIn = () => {
   };
   return (
     <>
-      <div className="mx-auto flex min-h-full flex-1 flex-col justify-center items-center bg-secondary p-6 mt-8 rounded-xl lg:px-8 w-5/6">
+      <div className="mx-auto flex min-h-full flex-1 flex-col justify-center items-center bg-secondary p-6  mt-8 rounded-xl lg:px-8 w-5/6">
         <div className=" sm:mx-auto sm:w-full sm:max-w-sm">
           <h2 className="text-center text-[2rem] font-algerian leading-9 tracking-tight text-white">
             Sign In

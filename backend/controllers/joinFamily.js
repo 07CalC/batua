@@ -21,7 +21,7 @@ export const joinFamily = async (req, res) => {
     }
 
     await Family.updateOne({ familyId: familyId }, { $push: { members: userId } });
-    await User.updateOne({ _id: userId },  { family: family._id } );
+    await User.updateOne({ _id: userId },  { family: family.familyId } );
     return res.status(200).json({ message: "family joined" });
     }   
     catch(error){

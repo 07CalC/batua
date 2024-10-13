@@ -71,7 +71,7 @@ export const Individual = () => {
             
         </div>
         <div className="mt-8 items-center flex text-3xl font-bold">{context.monthlyExpense.type ? context.monthlyExpense.type : "N/A"}</div>
-        <div className="mt-1 items-center flex text-lg text-accent"><LiaRupeeSignSolid />{context.monthlyExpense.typeAmount ? context.monthlyExpense.typeAmount : "N/A"} spent on {context.monthlyExpense.type ? context.monthlyExpense.type : "N/A"}</div>
+        <div className="mt-1 items-center flex text-lg text-accent"><LiaRupeeSignSolid />{context.monthlyExpense.typeAmount ? context.monthlyExpense.typeAmount : 0} spent on {context.monthlyExpense.type ? context.monthlyExpense.type : "N/A"}</div>
     </div>
     
   </div>
