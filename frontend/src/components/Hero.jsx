@@ -7,6 +7,7 @@ import { NavLink } from "react-router-dom";
 import { MdOutlinePhoneAndroid } from "react-icons/md";
 import { MdOutlineTabletAndroid } from "react-icons/md";
 import { MdLaptopWindows } from "react-icons/md";
+import { IoTabletLandscapeSharp } from "react-icons/io5";
 
 export const Hero = () => {
   return (
@@ -171,7 +172,7 @@ export const Hero = () => {
             </strong>
             <div className="flex mt-4 justify-center items-center">
                 <MdOutlinePhoneAndroid className="md:text-7xl text-5xl text-textcol hover:text-accent" />
-                <MdOutlineTabletAndroid className="md:text-7xl text-5xl text-textcol hover:text-accent" />
+                <IoTabletLandscapeSharp className="md:text-7xl text-5xl text-textcol hover:text-accent" />
                 <MdLaptopWindows className="md:text-7xl text-5xl text-textcol hover:text-accent" />
             </div>
         </div>
