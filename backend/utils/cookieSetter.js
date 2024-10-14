@@ -10,6 +10,6 @@ export const setCookie = (userId, res) => {
         sameSite: "none",
         maxAge: 30 * 24 * 3600 * 1000,
         path: "/",
-        domain: "batuaa.onrender.com"
+        domain: "onrender.com"
     })
 }
