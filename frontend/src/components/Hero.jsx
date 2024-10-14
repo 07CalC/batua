@@ -172,7 +172,7 @@ export const Hero = () => {
             </strong>
             <div className="flex mt-4 justify-center items-center">
                 <MdOutlinePhoneAndroid className="md:text-7xl text-5xl text-textcol hover:text-accent" />
-                <IoTabletLandscapeSharp className="md:text-7xl text-5xl text-textcol hover:text-accent" />
+                <IoTabletLandscapeSharp className="md:text-7xl text-5xl mr-4 text-textcol hover:text-accent" />
                 <MdLaptopWindows className="md:text-7xl text-5xl text-textcol hover:text-accent" />
             </div>
         </div>
