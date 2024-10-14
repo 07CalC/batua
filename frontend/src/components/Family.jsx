@@ -120,7 +120,7 @@ export const Family = () => {
       {context.signedUser.family && (
         <div className="flex flex-col w-full ">
           <div className="block w-full items-center justify-center md:flex mt-8">
-            <div className="md:w-1/3 border-2 border-border bg-secondary flex md:mx-2 flex-col p-4 py-8 rounded-xl">
+            <div className="md:w-1/3 h-full border-2 border-border bg-secondary flex md:mx-2 flex-col p-4 py-8 rounded-xl">
               <div className="flex justify-between">
                 <div>
                   <p className="text-lg font-semibold">Total Monthly Expense</p>
@@ -137,7 +137,7 @@ export const Family = () => {
                 +2.5% from Last Month
               </div> */}
             </div>
-            <div className="md:w-1/3 border-2 mt-3 md:mt-0 border-border bg-secondary flex md:mx-2 flex-col p-4 py-8 rounded-xl">
+            <div className="md:w-1/3 h-full border-2 mt-3 md:mt-0 border-border bg-secondary flex md:mx-2 flex-col p-4 py-8 rounded-xl">
               <div className="flex justify-between">
                 <div>
                   <p className="text-lg font-semibold">Average daily spend</p>
