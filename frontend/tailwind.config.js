@@ -10,7 +10,7 @@ module.exports = {
     extend: {},
     fontFamily: {
       'roboto': ['Roboto', 'sans-serif'],
-      'algerian': ['Algerian', 'cursive'],
+      'algerian': ['cursive'],
       'alata': ['Alata', 'sans-serif'],
     },
     colors: {
