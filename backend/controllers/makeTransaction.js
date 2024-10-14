@@ -26,7 +26,7 @@ export const makeTransaction = async (req, res) => {
 
     await newTransaction.save();
     await User.updateOne({_id: userId}, { $push: {transactions: newTransaction._id}, $inc: {totalExpense: amount}});
-    familyId ? await Family.updateOne({_id: familyId}, { $push: {transactions: newTransaction._id}, $inc: {totalFamilyExpense: amount}}) : ""
+    familyId ? await Family.updateOne({familyId: familyId}, { $push: {transactions: newTransaction._id}, $inc: {totalFamilyExpense: amount}}) : ""
     
     return res.status(200).json({ message: "transaction created" });
   } catch (error) {

@@ -7,9 +7,8 @@ export const setCookie = (userId, res) => {
     res.cookie("token", token, {
         httpOnly: true,
         secure: process.env.NODE_ENV !== "development",
-        sameSite: "none",
+        sameSite: "strict",
         maxAge: 30 * 24 * 3600 * 1000,
-        path: "/",
-        domain: "onrender.com"
+        
     })
 }

@@ -18,7 +18,7 @@ export const AllContextProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(true)
     const [showMenu, setShowMenu] = useState(false);
     const getMe = async () => {
-      const res = await fetch(`https://batua-4k0y.onrender.com/api/auth/me`, {
+      const res = await fetch(`/api/auth/me`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json"
@@ -35,7 +35,7 @@ export const AllContextProvider = ({ children }) => {
   
     const getDailyData = async () => {
         setIsLoading(true)
-        const res = await fetch(`https://batua-4k0y.onrender.com/api/transaction/getdailyexpense`, {
+        const res = await fetch(`/api/transaction/getdailyexpense`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -52,7 +52,7 @@ export const AllContextProvider = ({ children }) => {
     }
 
     const getMonthlyExpense = async () => {
-        const res = await fetch(`https://batua-4k0y.onrender.com/api/transaction/getmonthlyexpense`, {
+        const res = await fetch(`/api/transaction/getmonthlyexpense`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -70,7 +70,7 @@ export const AllContextProvider = ({ children }) => {
 
 
     const getmonthlyFamilyexpense = async () => {
-        const res = await fetch(`https://batua-4k0y.onrender.com/api/transaction/getmonthlyfamilyexpense`, {
+        const res = await fetch(`/api/transaction/getmonthlyfamilyexpense`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -87,7 +87,7 @@ export const AllContextProvider = ({ children }) => {
     }
 
     const getDailyFamilyExpense = async () => {
-        const res = await fetch(`https://batua-4k0y.onrender.com/api/transaction/getdailyfamilyexpense`, {
+        const res = await fetch(`/api/transaction/getdailyfamilyexpense`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -104,7 +104,7 @@ export const AllContextProvider = ({ children }) => {
         
 
      const getLineData = async() => {
-      const res = await fetch(`https://batua-4k0y.onrender.com/api/transaction/getLineGraphData`, {
+      const res = await fetch(`/api/transaction/getLineGraphData`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -120,7 +120,7 @@ export const AllContextProvider = ({ children }) => {
      }
 
      const getFamilyLineGraphData = async() => {
-      const res = await fetch(`https://batua-4k0y.onrender.com/api/transaction/getFamilyLineGraphData`, {
+      const res = await fetch(`/api/transaction/getFamilyLineGraphData`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -150,7 +150,7 @@ export const AllContextProvider = ({ children }) => {
     useEffect(()=>{
         getMe()
     },[isLoggedIn])
-
+    console.log(isLoading)
   return (
     <AllContext.Provider
       value={{

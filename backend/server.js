@@ -26,6 +26,7 @@ app.use(cookieParser());
 app.use("/api/auth", authRoutes)
 app.use("/api/transaction", transactionRoutes)
 
+app.use(express.static("./frontend/build"));
 
 app.listen(PORT, async ()=>{
     await dbConnect()

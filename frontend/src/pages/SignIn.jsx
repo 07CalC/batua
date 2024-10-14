@@ -19,7 +19,7 @@ export const SignIn = () => {
   };
   const handleSignIn = async () => {
     setLoading(true);
-    const res = await fetch(`https://batua-4k0y.onrender.com/api/auth/signin`, {
+    const res = await fetch(`/api/auth/signin`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
