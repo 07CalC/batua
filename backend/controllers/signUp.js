@@ -5,8 +5,6 @@ import bcrypt from "bcryptjs";
 export const singUp = async (req, res) => {
   try {
     const { name, email, number, password } = req.body;
-
-    console.log(name, email, number, password)
     if(!name || !email || !number || !password){
       return res.status(201).json({message: "insufficient data"})
     }
