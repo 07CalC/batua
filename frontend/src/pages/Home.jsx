@@ -31,7 +31,7 @@ export const Home = () => {
               )}
               {!context.isLoading && (
                 <div className="flex flex-col justify-center  w-11/12 mt-8">
-                  <div className="flex justify-between">
+                  <div className="md:flex grid items-center justify-center md:items-start md:justify-between">
                     <strong className="text-3xl font-algerian font-bold">
                       Comprehensive Expense Tracker
                     </strong>
@@ -39,10 +39,10 @@ export const Home = () => {
                       type="date"
                       value={context.date}
                       onChange={(e) => context.setDate(e.target.value)}
-                      className="rounded-xl p-2"
+                      className="rounded-xl w-5/12 mt-4 md:mt-0 md:w-auto p-2"
                     ></input>
                   </div>
-                  <div className="w-5/6 flex self-center items-center mt-5">
+                  <div className="md:w-5/6 w-full flex self-center items-center mt-5">
                     <div
                       onClick={() => context.setIsFamily(false)}
                       className={`text-lg cursor-pointer flex items-center justify-center ${
@@ -76,11 +76,11 @@ export const Home = () => {
       )}
       {context.isLoading && (
         <div className="flex flex-col items-center w-full mt-8">
-          <strong className="text-4xl font-algerian font-bold">
+          <strong className="md:text-4xl text-3xl font-algerian font-bold">
             Loading....
           </strong>
           <p className="text-xl">Bunch of data is being fetched</p>
-          <img src="https://res.cloudinary.com/dkhymc3li/image/upload/v1728847252/output-onlinegiftools_mipoti.gif" className="rounded-xl mt-5 w-5/12"/>
+          <img src="https://res.cloudinary.com/dkhymc3li/image/upload/v1728847252/output-onlinegiftools_mipoti.gif" className="rounded-xl mt-5 w-full md:w-5/12"/>
         </div>
       )}
     </>

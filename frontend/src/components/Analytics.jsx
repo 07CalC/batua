@@ -23,11 +23,11 @@ export const Analytics = (lineGraphData) => {
   const categoryData = lineGraphData.categoryData
   return (
     <div className="flex flex-col w-full">
-      <div className="flex flex-col rounded-xl border-2 border-border w-full h-full p-6 bg-secondary  md:flex mt-8">
-        <strong className="text-3xl font-algerian  font-bold">
+      <div className="flex flex-col rounded-xl border-2 border-border w-full h-full p-2 md:p-6 bg-secondary  md:flex mt-8">
+        <strong className="md:text-3xl text-xl font-algerian  font-bold">
           Expense Trend
         </strong>
-        <p className="text-lg mb-7 text-accent">
+        <p className="md:text-lg text-md mb-7 text-accent">
           Your daily expense over time {"(last 10 days)"}
         </p>
         <ResponsiveContainer width="100%" height={500}>
@@ -46,12 +46,12 @@ export const Analytics = (lineGraphData) => {
           </LineChart>
         </ResponsiveContainer>
       </div>
-      <div className="flex w-full">
-        <div className="flex flex-col w-1/2 rounded-xl mx-3 p-6 border-2 border-border bg-secondary  md:flex mt-8">
-          <strong className="text-3xl font-algerian  font-bold">
+      <div className="md:flex block w-full">
+        <div className="flex flex-col md:w-1/2 rounded-xl md:mx-3 p-2 md:p-6 border-2 border-border bg-secondary  md:flex mt-8">
+          <strong className="md:text-3xl text-xl font-algerian  font-bold">
             Top Expenses
           </strong>
-          <p className="text-lg mb-7 text-accent">
+          <p className="md:text-lg text-md mb-7 text-accent">
             Your highest spending categories {"(This month)"}
           </p>
           <ResponsiveContainer width="100%" height={400}>
@@ -81,8 +81,8 @@ export const Analytics = (lineGraphData) => {
             </BarChart>
           </ResponsiveContainer>
         </div>
-        <div className="flex flex-col w-1/2 rounded-xl mx-3 p-6 border-2 border-border bg-secondary  md:flex mt-8">
-          <strong className="text-3xl font-algerian  font-bold">
+        <div className="flex flex-col md:w-1/2 rounded-xl md:mx-3 md:p-6 p-2 border-2 border-border bg-secondary  md:flex mt-8">
+          <strong className="md:text-3xl text-xl font-algerian  font-bold">
             Expense by category
           </strong>
           <p className="text-lg mb-7 text-accent">

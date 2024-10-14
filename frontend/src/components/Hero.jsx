@@ -12,20 +12,20 @@ export const Hero = () => {
   return (
     <div className="w-full flex-col flex items-center justify-center">
       <div className="w-full bg-primary flex flex-col ">
-        <div className="flex px-8 py-6 mt-7 space-y-6">
-          <div className="flex flex-col w-1/2">
-            <strong className="text-[4rem] font-algerian tracking-tight font-bold  text-textcol">
+        <div className="md:flex grid px-8 py-6 mt-7 space-y-6">
+          <div className="flex flex-col text-center md:text-start md:w-1/2">
+            <strong className="md:text-[4rem] text-[2rem] font-algerian tracking-tight font-bold  text-textcol">
               Master Your Finances with Smart Expense Tracking
             </strong>
             <p className="text-2xl text-accent">
               Take control of your spending and achieve your financial goals
               with our intuitive and powerful expense tracker.
             </p>
-            <button className="bg-textcol text-secondary px-4 py-2 w-1/4  hover:scale-110 border-4 border-textcol  mt-4 rounded-md text-xl">
+            <button className="bg-textcol self-center md:self-start text-secondary px-4 py-2 md:w-1/4  hover:scale-110 border-4 border-textcol  mt-4 rounded-md text-lg md:text-xl">
               <NavLink to={"/signup"}>Get Started</NavLink>
             </button>
           </div>
-          <div className="grid grid-cols-2 w-1/2 gap-4">
+          <div className="grid md:grid-cols-2 md:w-1/2 gap-4">
             <div className="flex flex-col hover:scale-105 cursor-default items-center justify-center p-8 shadow-xl bg-secondary rounded-xl w-full ">
               <VscGraph className="text-[3.5rem]" />
               <strong className="text-xl font-algerian font-bold text-textcol">
@@ -64,11 +64,11 @@ export const Hero = () => {
         </div>
       </div>
       <div className="w-full bg-secondary justify-center items-center p-8 flex flex-col ">
-        <strong className="text-3xl font-algerian font-bold text-textcol">
+        <strong className="md:text-3xl text-2xl font-algerian font-bold text-textcol">
           How it works
         </strong>
-        <div className="flex space-x-6 mt-6 justify-center items-center p-5 px-16">
-          <div className="flex flex-col  items-center justify-center p-8  bg-primary/90 rounded-xl w-1/3 ">
+        <div className="md:flex grid md:space-x-6 mt-6 justify-center items-center p-5 md:px-16">
+          <div className="flex flex-col items-center justify-center p-8 bg-primary/90 rounded-xl w-full md:w-1/3 ">
             <FaRupeeSign className="text-4xl bg-primary/90 " />
             <strong className="text-xl font-algerian font-bold text-textcol">
               Log your Expenses
@@ -78,7 +78,7 @@ export const Hero = () => {
               few taps.
             </p>
           </div>
-          <div className="flex flex-col items-center justify-center p-8  bg-primary/90 rounded-xl w-1/3 ">
+          <div className="flex flex-col items-center mt-6 md:mt-0 justify-center p-8  bg-primary/90 rounded-xl w-full md:w-1/3 ">
             <GoGraph className="text-4xl bg-primary/90 " />
             <strong className="text-xl font-algerian font-bold text-textcol">
               Analyze your spend
@@ -88,7 +88,7 @@ export const Hero = () => {
               habits better.
             </p>
           </div>
-          <div className="flex flex-col items-center justify-center p-8  bg-primary/90 rounded-xl w-1/3 ">
+          <div className="flex flex-col items-center mt-6 md:mt-0 justify-center p-8 bg-primary/90 rounded-xl w-full md:w-1/3 ">
             <RiPieChartLine className="text-4xl bg-primary/90 " />
             <strong className="text-xl font-algerian font-bold text-textcol">
               Make Informed Decisions
@@ -101,65 +101,65 @@ export const Hero = () => {
         </div>
       </div>
       <div className="w-full bg-primary justify-center items-center p-8 flex flex-col">
-      <strong className="text-3xl font-algerian font-bold text-textcol">
+      <strong className="md:text-3xl text-2xl font-algerian font-bold text-textcol">
           Key Features
         </strong>
-        <div className="grid grid-cols-3 gap-4 mt-6 justify-center items-center p-5 px-16">
-          <div className="flex flex-col cursor-default justify-center   p-8 shadow-xl bg-secondary rounded-xl w-full ">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-6 justify-center items-center md:p-5 md:px-16">
+          <div className="flex flex-col cursor-default justify-center p-2 md:p-8 h-full shadow-xl bg-secondary rounded-xl w-full ">
            
-            <strong className="text-xl font-algerian font-bold text-textcol">
+            <strong className="md:text-xl text-lg font-algerian font-bold text-textcol">
             Expense Categorization
             </strong>
-            <p className="text-xl mt-6 text-accent">
+            <p className="md:text-xl text-lg mt-6 text-accent">
             Automatically categorize your expenses for easy tracking and analysis.
             </p>
           </div>
-          <div className="flex flex-col cursor-default justify-center   p-8 shadow-xl bg-secondary rounded-xl w-full ">
+          <div className="flex flex-col cursor-default justify-center p-2 h-full md:p-8 shadow-xl bg-secondary rounded-xl w-full ">
            
-            <strong className="text-xl font-algerian font-bold text-textcol">
+            <strong className="md:text-xl text-lg font-algerian font-bold text-textcol">
             Spending Trends
             </strong>
-            <p className="text-xl mt-6 text-accent">
+            <p className="md:text-xl text-lg mt-6 text-accent">
             Visualize your spending trends over time with interactive charts and graphs.
             </p>
           </div>
-          <div className="flex flex-col cursor-default justify-center   p-8 shadow-xl bg-secondary rounded-xl w-full ">
+          <div className="flex flex-col cursor-default justify-center p-2 h-full md:p-8 shadow-xl bg-secondary rounded-xl w-full ">
            
-            <strong className="text-xl font-algerian font-bold text-textcol">
+            <strong className="md:text-xl text-lg font-algerian font-bold text-textcol">
             Family Expense Sharing
             </strong>
-            <p className="text-xl mt-6 text-accent">
+            <p className="md:text-xl text-lg mt-6 text-accent">
             Share and manage household expenses with family members.
             </p>
           </div>
-          <div className="flex flex-col cursor-default justify-center   p-8 shadow-xl bg-secondary rounded-xl w-full ">
+          <div className="flex flex-col cursor-default justify-center p-2 h-full md:p-8 shadow-xl bg-secondary rounded-xl w-full ">
            
-            <strong className="text-xl font-algerian font-bold text-textcol">
+            <strong className="md:text-xl text-lg font-algerian font-bold text-textcol">
             Secure Data Storage
             </strong>
-            <p className="text-xl mt-6 text-accent">
+            <p className="md:text-xl text-lg mt-6 text-accent">
             Your financial data is protected with bank-level encryption.
             </p>
           </div>
-          <div className="flex flex-col cursor-default justify-center   p-8 shadow-xl bg-secondary rounded-xl w-full ">
-           <div className="flex items-center">
-            <strong className="text-xl font-algerian font-bold text-textcol">
+          <div className="flex flex-col cursor-default justify-center p-2 h-full md:p-8 shadow-xl bg-secondary rounded-xl w-full ">
+           <div className="md:flex grid items-center">
+            <strong className="md:text-xl text-lg font-algerian font-bold text-textcol">
             Export Functionality 
             </strong>
             <p className="text-sm font-thin text-center text-accent">{"  (Coming Soon)"}</p>
             </div>
-            <p className="text-xl mt-6 text-accent">
+            <p className="md:text-xl text-lg mt-6 text-accent">
             Export your expense data for use in other financial tools or for tax purposes.
             </p>
           </div>
-          <div className="flex flex-col cursor-default justify-center   p-8 shadow-xl bg-secondary rounded-xl w-full ">
-          <div className="flex items-center">
-            <strong className="text-xl font-algerian font-bold text-textcol">
+          <div className="flex flex-col cursor-default justify-center p-2 h-full md:p-8 shadow-xl bg-secondary rounded-xl w-full ">
+          <div className="md:flex grid items-center">
+            <strong className="md:text-xl text-lg font-algerian font-bold text-textcol">
             Customisable Reports
             </strong>
             <p className="text-sm font-thin text-center text-accent">{"  (Coming Soon)"}</p>
             </div>
-            <p className="text-xl mt-6 text-accent">
+            <p className="md:text-xl text-lg mt-6 text-accent">
             Generate custom reports to gain deeper insights into your spending habits.
             </p>
           </div>
@@ -170,9 +170,9 @@ export const Hero = () => {
             Available on all devices
             </strong>
             <div className="flex mt-4 justify-center items-center">
-                <MdOutlinePhoneAndroid className="text-7xl text-textcol hover:text-accent" />
-                <MdOutlineTabletAndroid className="text-7xl text-textcol hover:text-accent" />
-                <MdLaptopWindows className="text-7xl text-textcol hover:text-accent" />
+                <MdOutlinePhoneAndroid className="md:text-7xl text-5xl text-textcol hover:text-accent" />
+                <MdOutlineTabletAndroid className="md:text-7xl text-5xl text-textcol hover:text-accent" />
+                <MdLaptopWindows className="md:text-7xl text-5xl text-textcol hover:text-accent" />
             </div>
         </div>
       </div>

@@ -41,8 +41,8 @@ export const Individual = () => {
     ]
   return (
     <div className="flex flex-col w-full ">
-  <div className="grid w-full items-center justify-center md:flex mt-8">
-    <div className="w-1/3 border-2 border-border bg-secondary flex mx-2 flex-col p-4 py-8 rounded-xl">
+  <div className="block items-center justify-center md:flex mt-8">
+    <div className="md:w-1/3  border-2 border-border bg-secondary flex md:mx-2 flex-col p-4 py-8 rounded-xl">
         <div className="flex justify-between">
             <div><p className="text-lg font-semibold">Total Monthly Expense</p></div>
             <div className="flex items-center justify-center"><LiaRupeeSignSolid className="text-lg text-accent" /></div>
@@ -51,7 +51,7 @@ export const Individual = () => {
         <div className="mt-8 items-center flex text-3xl font-bold"><LiaRupeeSignSolid/>{context.monthlyExpense.monthlyExpense ? context.monthlyExpense.monthlyExpense : 0}</div>
         <div className="mt-1 items-center flex text-lg text-accent">+2.5% from Last Month</div>
     </div>
-    <div className="w-1/3 border-2 border-border bg-secondary flex mx-2 flex-col p-4 py-8 rounded-xl">
+    <div className="md:w-1/3 border-2 mt-3 md:mt-0 border-border w-full bg-secondary flex md:mx-2 flex-col p-4 py-8 rounded-xl">
         <div className="flex justify-between">
             <div><p className="text-lg font-semibold">Average daily spend</p></div>
             <div className="flex items-center justify-center"><FaCoins className="text-xl text-accent" /></div>
@@ -64,7 +64,7 @@ export const Individual = () => {
         <div className="mt-1 items-center flex text-lg text-accent">-5.6% from last month</div>
        
     </div>
-    <div className="w-1/3 border-2 border-border bg-secondary flex mx-2 flex-col p-4 py-8 rounded-xl">
+    <div className="md:w-1/3 border-2 mt-3 md:mt-0 border-border bg-secondary flex md:mx-2 flex-col p-4 py-8 rounded-xl">
         <div className="flex justify-between">
             <div><p className="text-lg font-semibold">Top Category</p></div>
             <div className="flex items-center justify-center"><HiChartPie className="text-lg text-accent" /></div>
@@ -75,7 +75,7 @@ export const Individual = () => {
     </div>
     
   </div>
-  <div className="w-1/5 flex items-center mt-5">
+  <div className="md:w-1/5 flex items-center mt-5">
         <div
           onClick={() => setIsAnalytics(false)}
           className={`text-lg cursor-pointer flex items-center justify-center ${

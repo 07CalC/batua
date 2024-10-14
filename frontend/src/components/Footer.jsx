@@ -3,8 +3,8 @@ import { FaXTwitter } from "react-icons/fa6";
 
 export const Footer = () => {
   return (
-    <div className="w-full bg-textcol bottom-0 flex justify-between p-8 text-2xl text-secondary">
-      <div className="flex flex-col items-center w-1/3 justify-center">
+    <div className="w-full bg-textcol bottom-0 md:flex grid justify-between p-8 text-2xl text-secondary">
+      <div className="flex flex-col items-center w-full md:w-1/3 justify-center">
         <strong className="text-4xl font-algerian text-accent">Batua</strong>
         <p className="text-xl mt-5 text-accent">
           Easily manage your spending, track your expenses, and gain control
@@ -13,14 +13,14 @@ export const Footer = () => {
         </p>
         <p className="text-2xl mt-5 text-accent">© 2024 Batua. All rights reserved.</p>
       </div>
-      <div className="flex flex-col items-center w-1/3 justify-center">
+      <div className="flex flex-col items-center mt-6 md:mt-0 w-full md:w-1/3 justify-center">
         <strong className="text-4xl font-algerian text-accent">
           Contact Us
         </strong>
         <p className="text-xl mt-5 text-accent">Email: maheshwarivinayak90@gmail.com</p>
         
       </div>
-      <div className="flex flex-col items-center w-1/3 justify-center">
+      <div className="flex flex-col items-center mt-6 md:mt-0 w-full md:w-1/3 justify-center">
         <strong className="text-4xl font-algerian text-accent">
           Connect with Us{" "}
         </strong>

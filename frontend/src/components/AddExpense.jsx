@@ -40,13 +40,13 @@ export const AddExpense = () => {
 
   return (
     <div className="flex flex-col rounded-xl border-2 border-border w-full p-6 bg-secondary  md:flex mt-8">
-        <strong className="text-3xl font-algerian  font-bold">
+        <strong className="md:text-3xl text-xl font-algerian  font-bold">
         Add Expense
       </strong>
-      <p className="text-lg mb-7 text-accent">
+      <p className="md:text-lg text-md mb-7 text-accent">
         Record a new Expense
       </p>
-      <div className="grid self-center align-middle grid-cols-2 mx-4 w-11/12 gap-6 justify-center items-center ">
+      <div className="grid self-center align-middle grid-cols-2 md:mx-4 md:w-11/12 gap-3 md:gap-6 justify-center items-center ">
         <div className="flex flex-col">
             <p className="text-lg">Description</p>
             <input value={expenseData.description} onChange={handleChange} name="description" placeholder="Expense description" className="border-2 placeholder:text-accent placeholder:font-algerian border-border rounded-xl  p-2" type="text" />

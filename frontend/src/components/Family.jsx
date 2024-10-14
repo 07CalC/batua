@@ -87,18 +87,18 @@ export const Family = () => {
   return (
     <>
       {!context.signedUser.family && (
-        <div className="flex items-center justify-center w-full bg-secondary border-2 mt-8 border-border p-8 rounded-xl">
-          <div className="flex flex-col w-1/2 items-center self-center justify-center pr-24 border-r-4 border-border">
+        <div className="md:flex block items-center justify-center w-full bg-secondary border-2 mt-8 border-border md:p-8 rounded-xl">
+          <div className="flex flex-col md:w-1/2 mt-6 md:mt-0 items-center self-center justify-center md:pr-24 md:border-r-4 border-border">
           <img
             src="https://media1.tenor.com/m/aSkdq3IU0g0AAAAC/laughing-cat.gif"
             className="w-5/6 rounded-xl self-center"
           />
-          <strong className="text-3xl text-center font-algerian font-bold">
+          <strong className="md:text-3xl text-xl text-center font-algerian font-bold">
             LMAO, orphan, no family?
           </strong>
           </div>
-          <div className="flex flex-col w-1/2 pl-16 mt-7 items-center self-center justify-center">
-            <div className="flex text-2xl font-bold font-algerian text-center flex-col border-b-2 border-border pb-8">
+          <div className="flex flex-col md:w-1/2 md:pl-16 mt-7 items-center self-center justify-center">
+            <div className="flex md:text-2xl text-xl font-bold font-algerian text-center flex-col border-b-2 border-border pb-8">
                 Enter the family code to join
                 <input type="number" value={familyId} onChange={(e) => setFamilyId(e.target.value)} className="rounded-xl p-2 border-2 border-border"/>
                 <button onClick={handleJoinFamily} className="bg-textcol text-secondary px-4 py-2   hover:scale-110 border-4 border-textcol  mt-4 rounded-md text-xl">
@@ -106,7 +106,7 @@ export const Family = () => {
                 </button>
             </div>
             <div className="mt-6 w-2/3 flex flex-col">
-                <strong className="text-2xl text-center font-algerian font-bold">or create one </strong>
+                <strong className="md:text-2xl text-xl text-center font-algerian font-bold">or create one </strong>
                 <button onClick={handleMakeFamily} className="bg-textcol font-algerian text-secondary px-4 py-2 w-full  hover:scale-110 border-4 border-textcol rounded-md text-xl">
                     {isLoading ? "Loading..." : "Create"}
                 </button>
@@ -119,8 +119,8 @@ export const Family = () => {
       )}
       {context.signedUser.family && (
         <div className="flex flex-col w-full ">
-          <div className="grid w-full items-center justify-center md:flex mt-8">
-            <div className="w-1/3 border-2 border-border bg-secondary flex mx-2 flex-col p-4 py-8 rounded-xl">
+          <div className="block w-full items-center justify-center md:flex mt-8">
+            <div className="md:w-1/3 border-2 border-border bg-secondary flex md:mx-2 flex-col p-4 py-8 rounded-xl">
               <div className="flex justify-between">
                 <div>
                   <p className="text-lg font-semibold">Total Monthly Expense</p>
@@ -137,7 +137,7 @@ export const Family = () => {
                 +2.5% from Last Month
               </div>
             </div>
-            <div className="w-1/3 border-2 border-border bg-secondary flex mx-2 flex-col p-4 py-8 rounded-xl">
+            <div className="md:w-1/3 border-2 mt-3 md:mt-0 border-border bg-secondary flex md:mx-2 flex-col p-4 py-8 rounded-xl">
               <div className="flex justify-between">
                 <div>
                   <p className="text-lg font-semibold">Average daily spend</p>
@@ -159,7 +159,7 @@ export const Family = () => {
                 -5.6% from last month
               </div>
             </div>
-            <div className="w-1/3 border-2 border-border bg-secondary flex mx-2 flex-col p-4 py-8 rounded-xl">
+            <div className="md:w-1/3 border-2 mt-3 md:mt-0 border-border bg-secondary flex md:mx-2 flex-col p-4 py-8 rounded-xl">
               <div className="flex justify-between">
                 <div>
                   <p className="text-lg font-semibold">Top Category</p>
@@ -178,7 +178,7 @@ export const Family = () => {
               </div>
             </div>
 
-            <div className="w-1/3 border-2 border-border bg-secondary flex mx-2 flex-col p-4 py-8 rounded-xl">
+            <div className="md:w-1/3 border-2 mt-3 md:mt-0 border-border bg-secondary flex md:mx-2 flex-col p-4 py-8 rounded-xl">
               <div className="flex justify-between">
                 <div>
                   <p className="text-lg font-semibold">Family Code</p>
@@ -195,7 +195,7 @@ export const Family = () => {
               </div>
             </div>
           </div>
-          <div className="w-1/5 flex items-center mt-5">
+          <div className="md:w-1/5 flex items-center mt-5">
             <div
               onClick={() => setIsAnalytics(false)}
               className={`text-lg cursor-pointer flex items-center justify-center ${
