@@ -15,7 +15,7 @@ export const AddExpense = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
-        const res = await fetch(`http://localhost:8000/api/transaction/maketransaction`, {
+        const res = await fetch(`https://batua-4k0y.onrender.com/api/transaction/maketransaction`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -45,7 +45,7 @@ export const Family = () => {
 
   const handleMakeFamily = async () => {
     setIsLoading(true);
-    const res = await fetch(`http://localhost:8000/api/auth/makeFamily`, {
+    const res = await fetch(`https://batua-4k0y.onrender.com/api/auth/makeFamily`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -64,7 +64,7 @@ export const Family = () => {
 
   const handleJoinFamily = async () => {
     setIsLoading(true);
-    const res = await fetch(`http://localhost:8000/api/auth/joinfamily`, {
+    const res = await fetch(`https://batua-4k0y.onrender.com/api/auth/joinfamily`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
