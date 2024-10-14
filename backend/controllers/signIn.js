@@ -1,6 +1,6 @@
 import { setCookie } from "../utils/cookieSetter.js"
 import User from "../models/user.js"
-import bcrypt from "bcrypt"
+import bcrypt from "bcryptjs"
 
 
 export const signIn = async (req, res) => {
