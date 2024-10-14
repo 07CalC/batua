@@ -133,9 +133,9 @@ export const Family = () => {
                 <LiaRupeeSignSolid />
                 {context.monthlyFamilyExpense.monthlyExpense ? context.monthlyFamilyExpense.monthlyExpense : 0}
               </div>
-              {/* <div className="mt-1 items-center flex text-lg text-accent">
-                +2.5% from Last Month
-              </div> */}
+              <div className="mt-1 items-center flex text-lg text-accent">
+                
+              </div>
             </div>
             <div className="md:w-1/3 h-full border-2 mt-3 md:mt-0 border-border bg-secondary flex md:mx-2 flex-col p-4 py-8 rounded-xl">
               <div className="flex justify-between">
@@ -155,9 +155,9 @@ export const Family = () => {
                 ) / 100 : 0}
               </div>
 
-              {/* <div className="mt-1 items-center flex text-lg text-accent">
-                -5.6% from last month
-              </div> */}
+              <div className="mt-1 items-center flex text-lg text-accent">
+                
+              </div>
             </div>
             <div className="md:w-1/3 border-2 mt-3 md:mt-0 border-border bg-secondary flex md:mx-2 flex-col p-4 py-8 rounded-xl">
               <div className="flex justify-between">
