@@ -7,6 +7,8 @@ export const AllContextProvider = ({ children }) => {
     const [date, setDate] = useState(new Date().getFullYear() + "-" + (new Date().getMonth()+1)  + "-" + new Date().getDate())
     const [dailyExpense, setDailyExpense] = useState([])
     const [monthlyExpense, setMonthlyExpense] = useState(0)
+    const [lastMonthExpense, setLastMonthExpense] = useState(0)
+    const [lastMonthFamilyExpense, setLastMonthFamilyExpense] = useState(0)
     const [monthlyFamilyExpense, setMonthlyFamilyExpense] = useState(0)
     const [dailyFamilyExpense, setDailyFamilyExpense] = useState([])
     const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -18,24 +20,30 @@ export const AllContextProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(true)
     const [showMenu, setShowMenu] = useState(false);
     const getMe = async () => {
-      const res = await fetch(`/api/auth/me`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        credentials: "include"
-      })
-
-      const data = await res.json()
-      if(res.ok){
-      setIsLoggedIn(true)
-      setSignedUser(data)
+      try{
+        const res = await fetch(`/api/auth/me`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          credentials: "include"
+        })
+  
+        const data = await res.json()
+        if(res.ok){
+        setIsLoggedIn(true)
+        setSignedUser(data)
+        }
+      }
+      catch(err){
+        
       }
     }
   
     const getDailyData = async () => {
         setIsLoading(true)
-        const res = await fetch(`/api/transaction/getdailyexpense`, {
+        try{
+          const res = await fetch(`/api/transaction/getdailyexpense`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -48,11 +56,17 @@ export const AllContextProvider = ({ children }) => {
 
         const data = await res.json()
         setDailyExpense(data)
+        }
+        catch(err){
+          
+        }
+        
         
     }
 
     const getMonthlyExpense = async () => {
-        const res = await fetch(`/api/transaction/getmonthlyexpense`, {
+        try{
+          const res = await fetch(`/api/transaction/getmonthlyexpense`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -65,12 +79,61 @@ export const AllContextProvider = ({ children }) => {
 
         const data = await res.json()
         setMonthlyExpense(data)
+        }
+        catch(err){
+          
+        }
         
     }
 
+    const getLastMonthExpense = async () => {
+        try{
+          const res = await fetch(`/api/transaction/getLastMonthExpense`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            credentials: "include",
+            body: JSON.stringify({
+                date: date
+            }),
+        })
+
+        const data = await res.json()
+        setLastMonthExpense(data.lastMonthExpense)
+        }
+        catch(err){
+          
+        }
+       
+    }
+    
+
+    const getLastMonthFamilyExpense = async () => {
+        try{
+          const res = await fetch(`/api/transaction/getLastMonthFamilyExpense`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            credentials: "include",
+            body: JSON.stringify({
+                date: date
+            }),
+        })
+
+        const data = await res.json()
+        setLastMonthFamilyExpense(data.lastMonthExpense)
+        }
+        catch(err){
+          
+        }
+      }
+    
 
     const getmonthlyFamilyexpense = async () => {
-        const res = await fetch(`/api/transaction/getmonthlyfamilyexpense`, {
+        try{
+          const res = await fetch(`/api/transaction/getmonthlyfamilyexpense`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -83,11 +146,16 @@ export const AllContextProvider = ({ children }) => {
 
         const data = await res.json()
         setMonthlyFamilyExpense(data)
+        }
+        catch(err){
+          
+        }
 
     }
 
     const getDailyFamilyExpense = async () => {
-        const res = await fetch(`/api/transaction/getdailyfamilyexpense`, {
+        try{
+          const res = await fetch(`/api/transaction/getdailyfamilyexpense`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -100,39 +168,53 @@ export const AllContextProvider = ({ children }) => {
 
         const data = await res.json()
         setDailyFamilyExpense(data)
+        }
+        catch(err){
+          
+        }
       }
         
 
      const getLineData = async() => {
-      const res = await fetch(`/api/transaction/getLineGraphData`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({
-          date: date
-        }),
-      })
-
-      const data = await res.json()
-      setLineGraphData(data)
+        try{ const res = await fetch(`/api/transaction/getLineGraphData`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({
+            date: date
+          }),
+        })
+  
+        const data = await res.json()
+        setLineGraphData(data)
+        }
+        catch(err){
+          
+        }
      }
 
      const getFamilyLineGraphData = async() => {
-      const res = await fetch(`/api/transaction/getFamilyLineGraphData`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({
-          date: date
-        }),
-      })
-
-      const data = await res.json()
-      setFamilyLineGraphData(data)
+      try{
+        const res = await fetch(`/api/transaction/getFamilyLineGraphData`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({
+            date: date
+          }),
+        })
+  
+        const data = await res.json()
+        setFamilyLineGraphData(data)
+        setIsLoading(false)
+      }
+      catch(err){
+        
+      }
       setIsLoading(false)
     }
       
@@ -143,6 +225,8 @@ export const AllContextProvider = ({ children }) => {
         getmonthlyFamilyexpense()
         getDailyFamilyExpense()
         getLineData()
+        getLastMonthExpense()
+        getLastMonthFamilyExpense()
         getFamilyLineGraphData()
     },[date,signedUser])
     
@@ -150,7 +234,7 @@ export const AllContextProvider = ({ children }) => {
     useEffect(()=>{
         getMe()
     },[isLoggedIn])
-    console.log(isLoading)
+    
   return (
     <AllContext.Provider
       value={{
@@ -172,7 +256,9 @@ export const AllContextProvider = ({ children }) => {
         familyLineGraphData,
         isLoading,
         showMenu,
-        setShowMenu
+        setShowMenu,
+        lastMonthExpense,
+        lastMonthFamilyExpense
       }}
     >
       {children}

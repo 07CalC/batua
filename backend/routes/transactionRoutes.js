@@ -7,6 +7,8 @@ import { getMonthlyFamilyExpense } from "../controllers/getMonthlyFamilyExpense.
 import { getDailyFamilyExpense } from "../controllers/getDailyFamilyExpense.js";
 import {  getLineGraphData } from "../controllers/getLineGraphData.js";
 import { getFamilyLineGraphData } from "../controllers/getFamilyLineGraphData.js";
+import { getLastMonthExpense } from "../controllers/getLastMonthExpense.js";
+import { getLastMonthFamilyExpense } from "../controllers/getLastMonthFamilyExpense.js";
 
 
 const router = express.Router()
@@ -18,6 +20,8 @@ router.post("/getmonthlyfamilyexpense", getUserId, getMonthlyFamilyExpense)
 router.post("/getdailyfamilyexpense", getUserId, getDailyFamilyExpense)
 router.post("/getLineGraphData", getUserId, getLineGraphData)
 router.post("/getFamilyLineGraphData", getUserId, getFamilyLineGraphData)
+router.post("/getLastMonthExpense", getUserId, getLastMonthExpense)
+router.post("/getLastMonthFamilyExpense", getUserId, getLastMonthFamilyExpense)
 
 
 export default router

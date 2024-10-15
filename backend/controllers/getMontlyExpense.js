@@ -13,7 +13,7 @@ export const getMonthlyExpense = async (req, res) => {
       month: new Date(date).getMonth() + 1 + "-" + new Date(date).getFullYear(),
     });
     if (transactions.length === 0)
-      return res.status(400).json({ message: "nothing found" });
+      return res.status(200).json({ message: "nothing found" });
     var monthlyExpense = 0;
     transactions.forEach((transaction) => {
       monthlyExpense += transaction.amount;

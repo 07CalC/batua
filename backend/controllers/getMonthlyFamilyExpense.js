@@ -16,7 +16,7 @@ export const getMonthlyFamilyExpense = async (req, res) => {
       month: new Date(date).getMonth() + 1 + "-" + new Date(date).getFullYear(),
     });
     if (transactions.length === 0)
-      return res.status(401).json({ message: "nothing found" });
+      return res.status(200).json({ message: "nothing found" });
     var monthlyExpense = 0;
     var food=0, clothing=0, travel=0, entertainment=0, other=0;
     transactions.forEach((transaction) => {
