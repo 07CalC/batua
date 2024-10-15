@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { LiaRupeeSignSolid } from "react-icons/lia";
 import { AllContext } from "../context/context";
 
-export const RecentExpenses = (dailyExpense, showName) => {
+export const RecentExpenses = (dailyExpense) => {
   const context = useContext(AllContext);
     const date = new Date(context.date).getDate() + "-" + (new Date(context.date).getMonth()+1)  + "-" + new Date(context.date).getFullYear()
   return (

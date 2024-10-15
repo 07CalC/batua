@@ -18,7 +18,7 @@ export const getDailyExpense = async (req, res) => {
         new Date(date).getFullYear(date),
     });
     if (transactions.length === 0)
-      return res.status(204).json({ message: "nothing found" });
+      return res.status(200).json({ message: "nothing found" });
     return res.status(200).json( transactions );
   } catch (error) {
     console.log("error in getDailyExpense ", error);
