@@ -9,6 +9,8 @@ import {  getLineGraphData } from "../controllers/getLineGraphData.js";
 import { getFamilyLineGraphData } from "../controllers/getFamilyLineGraphData.js";
 import { getLastMonthExpense } from "../controllers/getLastMonthExpense.js";
 import { getLastMonthFamilyExpense } from "../controllers/getLastMonthFamilyExpense.js";
+import { getDailyKharcha } from "../controllers/getDailyKharcha.js";
+import { getDailyFamilyKharcha } from "../controllers/getDailyFamilyKharcha.js";
 
 
 const router = express.Router()
@@ -22,6 +24,8 @@ router.post("/getLineGraphData", getUserId, getLineGraphData)
 router.post("/getFamilyLineGraphData", getUserId, getFamilyLineGraphData)
 router.post("/getLastMonthExpense", getUserId, getLastMonthExpense)
 router.post("/getLastMonthFamilyExpense", getUserId, getLastMonthFamilyExpense)
+router.post("/getDailyKharcha", getUserId, getDailyKharcha)
+router.post("/getDailyFamilyKharcha", getUserId, getDailyFamilyKharcha)
 
 
 export default router

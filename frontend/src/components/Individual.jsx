@@ -60,12 +60,45 @@ export const Individual = () => {
             {context.lastMonthExpense === 0
               ? "No expense Last month"
               : context.monthlyExpense.monthlyExpense
-              ? Math.round(((context.monthlyExpense.monthlyExpense -
-                context.lastMonthExpense) /
-                context.lastMonthExpense) *
-                100 *100) /100  +
+              ? Math.round(
+                  ((context.monthlyExpense.monthlyExpense -
+                    context.lastMonthExpense) /
+                    context.lastMonthExpense) *
+                    100 *
+                    100
+                ) /
+                  100 +
                 "% from last month"
               : "-100% from last month"}{" "}
+          </div>
+        </div>
+        <div className="md:w-1/3 mt-3 md:mt-0 h-full border-2 border-border bg-secondary flex md:mx-2 flex-col p-4 py-8 rounded-xl">
+          <div className="flex justify-between">
+            <div>
+              <p className="text-lg font-semibold">Today's Expense</p>
+            </div>
+            <div className="flex items-center justify-center">
+              <LiaRupeeSignSolid className="text-lg text-accent" />
+            </div>
+          </div>
+          <div className="mt-8 items-center flex text-3xl font-bold">
+            <LiaRupeeSignSolid />
+            {context.todaysKharcha}
+          </div>
+          <div className="mt-1 items-center flex text-lg text-accent">
+            {context.yesterdayKharcha === 0
+              ? "No expense yesterday"
+              : context.todaysKharcha
+              ? Math.round(
+                  ((context.todaysKharcha -
+                    context.yesterdayKharcha) /
+                    context.yesterdayKharcha) *
+                    100 *
+                    100
+                ) /
+                  100 +
+                "% from yesterday"
+              : "-100% from yesterday"}
           </div>
         </div>
         <div className="md:w-1/3 h-full border-2 mt-3 md:mt-0 border-border w-full bg-secondary flex md:mx-2 flex-col p-4 py-8 rounded-xl">
@@ -90,10 +123,14 @@ export const Individual = () => {
             {context.lastMonthExpense === 0
               ? "No expense Last month"
               : context.monthlyExpense.monthlyExpense
-              ? Math.round(((context.monthlyExpense.monthlyExpense -
-                context.lastMonthExpense) /
-                context.lastMonthExpense) *
-                100 *100) /100 +
+              ? Math.round(
+                  ((context.monthlyExpense.monthlyExpense -
+                    context.lastMonthExpense) /
+                    context.lastMonthExpense) *
+                    100 *
+                    100
+                ) /
+                  100 +
                 "% from last month"
               : "-100% from last month"}
           </div>
