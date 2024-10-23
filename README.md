@@ -1,4 +1,4 @@
-# JeeLore - JEE/NEET Doubt Solving and Practice Platform
+# Batua 💰
 
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fjeelore.site)](https://www.batua.site)
 
