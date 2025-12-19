@@ -17,29 +17,17 @@ export const Footer = () => {
         <strong className="text-4xl font-algerian text-accent">
           Contact Us
         </strong>
-        <p className="text-xl mt-5 text-accent">Email: maheshwarivinayak90@gmail.com</p>
-        
+        <p className="text-xl mt-5 text-accent">Email: sameer04bharti@gmail.com</p>
+
       </div>
       <div className="flex flex-col items-center mt-6 md:mt-0 w-full md:w-1/3 justify-center">
         <strong className="text-4xl font-algerian text-accent">
           Connect with Us{" "}
         </strong>
         <div className="flex space-x-4">
-            <a href="https://www.linkedin.com/in/maheshwarivinayak" target="_blank" rel="noreferrer" className="flex">
-          <CiLinkedin className="text-4xl mt-5 text-accent" />
-          <p className="text-xl mt-5 text-accent">VinayakMaheshwari</p>
-          </a>
-        </div>
-        <div className="flex space-x-4 ">
-        <a href="https://www.instagram.com/not_vinayak_m/" target="_blank" rel="noreferrer" className="flex">
-          <CiInstagram className="text-4xl mt-5 text-accent" />
-          <p className="text-xl mt-5 text-accent">@Not_Vinayak_M</p>
-          </a>
-        </div>
-        <div className="flex space-x-4 ">
-            <a href="https://x.com/Not_Vinayak" target="_blank" rel="noreferrer" className="flex">
-          <FaXTwitter className="text-3xl mt-5 text-accent" />
-          <p className="text-xl mt-5 text-accent">@Not_Vinayak</p>
+          <a href="https://www.linkedin.com/in/sameer-bharti-b11a23340/" target="_blank" rel="noreferrer" className="flex">
+            <CiLinkedin className="text-4xl mt-5 text-accent" />
+            <p className="text-xl mt-5 text-accent">Sameer Bharti</p>
           </a>
         </div>
       </div>

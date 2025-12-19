@@ -1,15 +1,11 @@
-FROM node:slim
+FROM oven/bun:1.1.0
 
 WORKDIR /app
 
-ENV JWT_SECRET="5MQPFqbEAEfr6JDjg50Eoz2qDlNb0XvpZPQ0Su8DDWM="
-ENV MONGO_URI="mongodb+srv://vinayak:vinayak070905@cluster1.1lltw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1"
-ENV NODE_ENV="development"
+COPY package.json ./
 
-ADD package*.json /app/
-
-RUN npm install 
+RUN bun install
 
 COPY . .
 
-CMD [ "node", "backend/server.js" ]
+CMD ["bun", "backend/server.js"]
